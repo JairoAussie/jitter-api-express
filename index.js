@@ -1,8 +1,8 @@
 // request-> routes -> controller -> model
-const express = require( "express")
-const cors = require("cors")
-const mongoose = require("mongoose")
-const router = require("./routes/messages-routes")
+import express from "express"
+import cors from "cors"
+import mongoose from "mongoose"
+import {router} from "./routes/messages-routes.js"
 
 const PORT = 3001
 const dbConn = "mongodb://localhost/jitter_mongo_db"

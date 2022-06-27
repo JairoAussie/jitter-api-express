@@ -1,6 +1,6 @@
-const {getAllMessages, getMessageById, addMessage, deleteMessage, changeMessage} = require('../utils/messages-utils')
+import {getAllMessages, getMessageById, addMessage, deleteMessage, changeMessage} from '../utils/messages-utils.js'
 
-const getMessages = (req, res) =>{
+export const getMessages = (req, res) =>{
     getAllMessages().exec((err,messages)=>{
         if (err){
             res.status(500)
@@ -12,7 +12,7 @@ const getMessages = (req, res) =>{
     })
 }
 
-const getMessage = (req, res) =>{
+export const getMessage = (req, res) =>{
     getMessageById(req.params.id).exec((err,message)=>{
         if (err){
             res.status(404)
@@ -24,7 +24,7 @@ const getMessage = (req, res) =>{
     })
 }
 
-const createMessage = (req, res) => {
+export const createMessage = (req, res) => {
     addMessage(req.body).save((err, message) => {
         if (err){
             res.status(500)
@@ -36,7 +36,7 @@ const createMessage = (req, res) => {
     })
 }
 
-const removeMessage = (req, res) => {
+export const removeMessage = (req, res) => {
     deleteMessage(req.params.id).exec((err)=>{
         if (err){
             res.status(404)
@@ -48,7 +48,7 @@ const removeMessage = (req, res) => {
     })
 }
 
-const updateMessage = (req, res) => {
+export const updateMessage = (req, res) => {
     changeMessage(req.params.id, req.body).exec((err, message) =>{
         if (err){
             res.status(500)
@@ -59,5 +59,3 @@ const updateMessage = (req, res) => {
         }
     })
 }
-
-module.exports = {getMessages, getMessage, createMessage, removeMessage, updateMessage}

@@ -1,22 +1,22 @@
-const Message = require('../models/message')
+import {Message} from '../models/message.js'
 
 // const getAllMessages = ()=> {
 //     return Message.find()
 // }
 
-const getAllMessages = ()=> Message.find()
+export const getAllMessages = ()=> Message.find()
 
-const getMessageById = (id) => Message.findById(id)
+export const getMessageById = (id) => Message.findById(id)
 
-const addMessage = (body) =>{
+export const addMessage = (body) =>{
     let date = Date.now()
     body.posted = date
     return Message(body)
 }
 
-const deleteMessage = (id) => Message.findByIdAndRemove(id)
+export const deleteMessage = (id) => Message.findByIdAndRemove(id)
 
-const changeMessage = (id, body) => {
+export const changeMessage = (id, body) => {
     let date = Date.now()
     body.posted = date
     return Message.findByIdAndUpdate(id, body, {new : true})
@@ -24,4 +24,3 @@ const changeMessage = (id, body) => {
 }
 
 
-module.exports = {getAllMessages, getMessageById, addMessage, deleteMessage, changeMessage}

@@ -1,8 +1,8 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
-//const normalize = require('normalize-mongoose')
+import mongoose from "mongoose"
 
-const Message = new Schema({
+import normalize from 'normalize-mongoose'
+
+export const messageSchema = new mongoose.Schema({
     text: {
         type: String,
         required: true
@@ -16,6 +16,6 @@ const Message = new Schema({
         required: true
     },
 })
-//Message.plugin(normalize)
+messageSchema.plugin(normalize)
 
-module.exports =  mongoose.model("Message", Message)
+export const Message =  mongoose.model("Message", messageSchema)
