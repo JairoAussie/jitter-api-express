@@ -12,7 +12,7 @@ export const messageSchema = new mongoose.Schema({
         required: true
     },
     posted: {
-        type: Date,
+        type: String,
         required: true
     },
 })
