@@ -8,10 +8,11 @@ export const getAllMessages = ()=> Message.find()
 
 export const getMessageById = (id) => Message.findById(id)
 
-export const addMessage = (body) =>{
+export const addMessage = (req) =>{
     let date = Date.now()
-    body.posted = date
-    return Message(body)
+    req.body.posted = date
+    req.body.username = req.user.username
+    return Message(req.body)
 }
 
 export const deleteMessage = (id) => Message.findByIdAndRemove(id)

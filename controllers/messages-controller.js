@@ -25,7 +25,7 @@ export const getMessage = (req, res) =>{
 }
 
 export const createMessage = (req, res) => {
-    addMessage(req.body).save((err, message) => {
+    addMessage(req).save((err, message) => {
         if (err){
             res.status(500)
             return res.json({error: err.message})
